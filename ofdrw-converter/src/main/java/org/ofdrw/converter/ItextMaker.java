@@ -242,10 +242,12 @@ public class ItextMaker {
                 continue;
             }
             for (Annot annot : annotList) {
-                List<PageBlockType> pageBlockTypeList = annot.getAppearance().getPageBlocks();
-                //注释的boundary
-                ST_Box annotBox = annot.getAppearance().getBoundary();
-                writePageBlock(resMgt, pdfCanvas, box, null, pageBlockTypeList, null, annotBox, null, null, null);
+                if(annot.getAppearance()!=null){
+                    List<PageBlockType> pageBlockTypeList = annot.getAppearance().getPageBlocks();
+                    //注释的boundary
+                    ST_Box annotBox = annot.getAppearance().getBoundary();
+                    writePageBlock(resMgt, pdfCanvas, box, null, pageBlockTypeList, null, annotBox, null, null, null);
+                }
             }
         }
     }
